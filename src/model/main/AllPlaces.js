@@ -7,7 +7,7 @@ export default (item = [
     latitude: 17.488534,
     longitude: -88.187042,
     iconLocationX: 259,
-    iconLocationY: 420,
+    iconLocationY: 380,
     type: 'museum',
     phone: '+501 227-3050',
     openingTime: 'Mon-Sunday (9:00am- 4:00pm)',
@@ -45,6 +45,7 @@ export default (item = [
       '來自台灣的國際合作發展基金會與貝里斯觀光部透過一項打造生態博物館的計畫，將針對文化之家進行修復工程，使之成為生態博物館的核心館。',
     isLiked: 'FALSE',
     mapImg: 'HOCMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/HOCMap.png'),
     iconImg: 'HOC',
     iconImgPath: require('../../../assets/MainPage/locationIcon/HOC.png'),
     website: 'http://www.belizeit.com/house-of-culture.html'
@@ -99,6 +100,7 @@ export default (item = [
       '2018年，在臺貝合作打造之生態博物館計畫下，最高法院進行了整修工程。',
     isLiked: 'FALSE',
     mapImg: 'SupremeCourtMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/SupremeCourtMap.png'),
     iconImg: 'SupremeCourt',
     iconImgPath: require('../../../assets/MainPage/locationIcon/SupremeCourt.png'),
     website: 'http://www.belizeit.com'
@@ -145,6 +147,7 @@ export default (item = [
       '本建築正在臺貝合作打造之生態博物館計畫下進行重建，完工後將成為生態博物館之衛星館之一。',
     isLiked: 'FALSE',
     mapImg: 'HDBMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/SupremeCourtMap.png'),
     iconImg: 'HDB',
     iconImgPath: require('../../../assets/MainPage/locationIcon/HOC.png'),
 
@@ -158,7 +161,7 @@ export default (item = [
     latitude: 17.489449,
     longitude: -88.187459,
     iconLocationX: 119,
-    iconLocationY: 403,
+    iconLocationY: 363,
     type: 'food & shop',
     phone: 'to be updated',
     openingTime: 'to be updated',
@@ -193,6 +196,8 @@ export default (item = [
       '2017年，貝國政府購入本建物，並透過與台灣合作執行之生態博物館計畫，於隔年拆除重建，完工後將作為生態博物館餐廳使用。歡迎您參觀完文化之家後前來享用正統道地美味，一同緬懷這位重要歷史人物。',
     isLiked: 'FALSE',
     mapImg: 'CockburnMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/CockburnMap.png'),
+
     iconImg: 'Cockburn',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Cockburn.png'),
 
@@ -241,6 +246,8 @@ export default (item = [
       '作為觀光客進入舊城區的入口，在此將提供藝術表演與手工藝品販售。想要快速了解貝里斯市文史背景及整個生態博物館內容的您，絕對不可錯過! ',
     isLiked: 'FALSE',
     mapImg: 'PaslowMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/PaslowMap.png'),
+
     iconImg: 'Paslow',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Paslow.png'),
 
@@ -254,7 +261,7 @@ export default (item = [
     latitude: 17.488052,
     longitude: -88.189969,
     iconLocationX: 16,
-    iconLocationY: 550,
+    iconLocationY: 510,
     type: 'monument',
     phone: 'N.A.',
     openingTime: 'Mon-Sunday(Open all day)',
@@ -300,6 +307,8 @@ export default (item = [
       '往墓園南端不遠處散步前去，您可見到一座有棚頂的籃球場，以及一座濱海的足球場，這是出自臺貝合作計畫連結文化之家南端空間，提供當地居民更完善的綠色空間的成果，歡迎您一同來流流汗! ',
     isLiked: 'FALSE',
     mapImg: 'YarboroughMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/YarboroughMap.png'),
+
     iconImg: 'Yarborough',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Yarborough.png'),
 
@@ -348,6 +357,8 @@ export default (item = [
       '公園的對面即是同樣歷史悠久的最高法院。歡迎來感受一下這個街區的悠古之情!',
     isLiked: 'FALSE',
     mapImg: 'BattlefieldMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/BattlefieldMap.png'),
+
     iconImg: 'Battlefield',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Battlefield.png'),
 
@@ -406,6 +417,8 @@ export default (item = [
       '過去貿易興盛時曾經頻繁地使用，可惜現在只有在特殊的情況下才會開啟。',
     isLiked: 'FALSE',
     mapImg: 'BridgeMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/BridgeMap.png'),
+
     iconImg: 'Bridge',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Bridge.png'),
 
@@ -456,6 +469,8 @@ export default (item = [
       '現在這座位於貝里斯市中心的小公園仍然是當地聚會休閒的好地方，象徵了這個國家的豐富歷史，路過的時候不妨來拍張照吧！',
     isLiked: 'FALSE',
     mapImg: 'MuleMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/MuleMap.png'),
+
     iconImg: 'Mule',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Mule.png'),
 
@@ -469,7 +484,7 @@ export default (item = [
     latitude: 17.491229,
     longitude: -88.187966,
     iconLocationX: 44,
-    iconLocationY: 297,
+    iconLocationY: 257,
     type: 'monument',
     phone: '+501 227-1801',
     openingTime: 'Open all day',
@@ -514,6 +529,8 @@ export default (item = [
       '可惜「大衛斯理」教堂亦被1931年的颶風摧毀，而如今所見的這座教堂落成於1951年。',
     isLiked: 'FALSE',
     mapImg: 'WesleyanMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/WesleyanMap.png'),
+
     iconImg: 'Wesleyan',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Wesleyan.png'),
 
@@ -527,7 +544,7 @@ export default (item = [
     latitude: 17.490833,
     longitude: -88.187229,
     iconLocationX: 203,
-    iconLocationY: 363,
+    iconLocationY: 323,
     type: 'monument',
     phone: 'N.A.',
     openingTime: 'not opened to the general public',
@@ -562,6 +579,8 @@ export default (item = [
       '本建築位於貝里斯市觀光局斜對面。雖為私人所有，不對外開放，但仍歡迎前來欣賞其外觀。',
     isLiked: 'FALSE',
     mapImg: 'EuseyMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/EuseyMap.png'),
+
     iconImg: 'Eusey',
     iconImgPath: require('../../../assets/MainPage/locationIcon/Eusey.png'),
 
@@ -609,7 +628,9 @@ export default (item = [
     mandarinStoryThird:
       ' 而旁邊的燈塔也是貝里斯著名的景點之一，多年以前，有位富有但大方的外國商人，他將他的所有財產捐給貝里斯。因此，為了紀念其無私的舉動，貝里斯政府出建立這座燈塔以茲紀念！',
     isLiked: 'FALSE',
-    mapImg: 'BelizeSignMap',
+    mapImg: 'BelizeWelcomeSignMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/BelizeWelcomeSignMap.png'),
+
     iconImg: 'BelizeWelcomeSign',
     iconImgPath: require('../../../assets/MainPage/locationIcon/BelizeWelcomeSign.png'),
 
@@ -623,7 +644,7 @@ export default (item = [
     latitude: 17.488813,
     longitude: -88.18791,
     iconLocationX: 124,
-    iconLocationY: 528,
+    iconLocationY: 448,
     type: 'monument',
     phone: '+501 227-3050',
     openingTime: 'Daily (6:00am-6:00pm)',
@@ -664,7 +685,9 @@ export default (item = [
     mandarinStoryThird:
       '2018年，在臺貝合作打造之生態博物館計畫下，這座教堂進行了整修工程。 ',
     isLiked: 'FALSE',
-    mapImg: "St.John'sCathedralMap",
+    mapImg: 'St.John_sCathedralMap',
+    mapImgPath: require('../../../assets/MainPage/gpsMap/St.John_sCathedralMap.png'),
+
     iconImg: 'St.John_sCathedral',
     iconImgPath: require('../../../assets/MainPage/locationIcon/St.John_sCathedral.png'),
 

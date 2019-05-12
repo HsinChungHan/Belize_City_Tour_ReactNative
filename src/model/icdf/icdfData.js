@@ -21,23 +21,23 @@ export default (items = [
   {
     colors: {
       upperColor: 'white',
-      lowerColor: 'green'
+      lowerColor: 'rgb(141,199,63)'
     },
     paragraph: icdfData.second,
     imagePath: imagePath[0]
   },
   {
     colors: {
-      upperColor: 'green',
-      lowerColor: 'gray'
+      upperColor: 'rgb(141,199,63)',
+      lowerColor: 'rgb(0,166,80)'
     },
     paragraph: icdfData.third,
     imagePath: imagePath[1]
   },
   {
     colors: {
-      upperColor: 'gray',
-      lowerColor: 'blue'
+      upperColor: 'rgb(0,166,80)',
+      lowerColor: 'rgb(0,182,240)'
     },
     paragraph: icdfData.forth,
     imagePath: imagePath[2]

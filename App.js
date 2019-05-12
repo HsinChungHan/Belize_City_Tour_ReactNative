@@ -10,6 +10,69 @@ import MainScene from './src/scenes/MainScene';
 import DetailScene from './src/scenes/DetailScene';
 import ICDFScene from './src/scenes/ICDFScene';
 import ProjectScene from './src/scenes/ProjectScene';
+import WebsiteScene from './src/scenes/WebsiteScene';
+
+const ICDFToWebsiteNavigator = createStackNavigator(
+  {
+    ICDF: {
+      screen: ICDFScene,
+      navigationOptions: () => ({
+        header: null
+      })
+      // navigationOptions: () => ({
+      //   title: 'ICDF',
+      //   headerBackTitle: null
+      // })
+    },
+    Website: {
+      screen: WebsiteScene,
+      navigationOptions: () => ({
+        title: 'Website',
+        headerBackTitle: null
+      })
+    }
+  },
+  {
+    initialRouteName: 'ICDF',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTitleStyle: 'bold'
+    }
+  }
+);
+
+const projectToWebsiteNavigator = createStackNavigator(
+  {
+    Project: {
+      screen: ProjectScene,
+      navigationOptions: () => ({
+        header: null
+      })
+      // navigationOptions: () => ({
+      //   title: 'ICDF',
+      //   headerBackTitle: null
+      // })
+    },
+    Website: {
+      screen: WebsiteScene,
+      navigationOptions: () => ({
+        title: 'Website',
+        headerBackTitle: null
+      })
+    }
+  },
+  {
+    initialRouteName: 'Project',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTitleStyle: 'bold'
+    }
+  }
+);
 
 const mainStackNavi = createStackNavigator(
   {
@@ -43,14 +106,15 @@ const tabNavigator = createBottomTabNavigator(
       screen: mainStackNavi
     },
     Project: {
-      screen: ProjectScene
+      screen: projectToWebsiteNavigator
     },
     ICDF: {
-      screen: ICDFScene
+      // screen: ICDFScene
+      screen: ICDFToWebsiteNavigator
     }
   },
   {
-    initialRouteName: 'Main',
+    initialRouteName: 'Project',
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
@@ -64,11 +128,11 @@ const tabNavigator = createBottomTabNavigator(
         }
 
         // You can return any component that you like here!
-        return <Image source={iconPath} />;
+        return <Image source={iconPath} style={{ width: 30, height: 30 }} />;
       }
     }),
     tabBarOptions: {
-      activeTintColor: 'black',
+      activeTintColor: 'yellow',
       inactiveTintColor: 'gray'
       // activeBackgroundColor: 'tomato'
     }

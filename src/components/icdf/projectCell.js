@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  Touchable
+} from 'react-native';
 import PictureCell from './pictureCell';
-import { white } from 'ansi-colors';
+
 const { width, height } = Dimensions.get('window');
 
 export default class ProjectCell extends Component {
@@ -16,17 +24,26 @@ export default class ProjectCell extends Component {
     this.lowerColor = this.colors.lowerColor;
     this.imagePath = this.items.imagePath;
     this.paragraph = this.items.paragraph;
+    this.navigation = this.props.navigation;
   }
 
+  goToWebsite = () => {
+    this.navigation.navigate('Website', {
+      uri: 'https://www.youtube.com/watch?v=OsGXuI6woHA&feature=youtu.be'
+    });
+  };
   render() {
     return (
       <View style={[styles.container, { backgroundColor: this.lowerColor }]}>
-        <PictureCell
-          upperStyle={{ backgroundColor: this.upperColor }}
-          lowerStyle={{ backgroundColor: this.lowerColor }}
-          cellHeight={this.props.height}
-          imagePath={this.imagePath}
-        />
+        <TouchableOpacity onPress={this.goToWebsite}>
+          <PictureCell
+            upperStyle={{ backgroundColor: this.upperColor }}
+            lowerStyle={{ backgroundColor: this.lowerColor }}
+            cellHeight={this.props.height}
+            imagePath={this.imagePath}
+          />
+        </TouchableOpacity>
+
         <Text
           numberOfLines={0}
           style={[styles.text, { backgroundColor: this.lowerColor }]}

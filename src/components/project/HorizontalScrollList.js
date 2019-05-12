@@ -18,16 +18,17 @@ export default class HorizontalScrollList extends Component {
       count: 0
     };
     this.baseState = this.state;
+    this.navigation = this.props.navigation
   }
 
   render() {
     return (
       <View style={styles.container}>
         <ScrollView horizontal={true} pagingEnabled={true}>
-          <ListItem item={Items.first} />
-          <ListItem item={Items.second} />
-          <ListItem item={Items.third} />
-          <ListItem item={Items.forth} />
+          <ListItem item={Items.first} havingVideo={false} navigation={this.navigation}/>
+          <ListItem item={Items.second} havingVideo={true} navigation={this.navigation}/>
+          <ListItem item={Items.third} havingVideo={false} navigation={this.navigation}/>
+          <ListItem item={Items.forth} havingVideo={false} navigation={this.navigation}/>
         </ScrollView>
       </View>
     );

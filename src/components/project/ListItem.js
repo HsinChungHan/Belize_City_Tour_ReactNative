@@ -8,30 +8,35 @@ import {
 } from 'react-native';
 import { Content } from 'native-base';
 import { Logos } from '../../model/project/projectData';
-
+import { Font } from 'expo';
 const { width, height } = Dimensions.get('window');
+const watchingVideoText = 'Click here to watch the introduction video!';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width
   },
-  title: {
+  titleView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-  content: {
+  titleText: {
+    fontSize: 22,
+    paddingLeft: 20
+  },
+  contentView: {
     flex: 3
   },
   textContent: {
-    backgroundColor: 'gray',
+    backgroundColor: 'rgba(54,46,43,0.8)',
     margin: 10,
     borderRadius: 20
   },
+
   text: {
     padding: 10,
-    fontSize: 24,
-    fontWeight: 'bold',
+    fontSize: 22,
     color: 'white',
     lineHeight: 35,
     marginTop: 10,
@@ -53,33 +58,73 @@ export default class ListItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0
+      isFontLoaded: false
     };
     this.item = this.props.item;
     this.title = this.item.title;
     this.paragraph = this.item.paragraph;
     this.imagePath = this.item.imagePath;
+    this.havingVideo = this.props.havingVideo;
+    this.navigation = this.props.navigation;
   }
 
+  async componentDidMount() {
+    await Font.loadAsync({
+      Vineritc: require('../../../assets/Fonts/Vineritc.ttf'),
+      Centaur: require('../../../assets/Fonts/Centaur.ttf')
+    });
+    this.setState(prevState => ({
+      isFontLoaded: true
+    }));
+  }
+
+  goToWebsite = () => {
+    this.navigation.navigate('Website', {
+      uri: 'https://www.youtube.com/watch?v=05dlrr3obIE&feature=youtu.be'
+    });
+  };
+
   render() {
-    console.log(this.imagePath);
     return (
       <View style={styles.container}>
         <ImageBackground
           source={this.imagePath}
           style={{ width: '100%', height: '100%' }}
         >
-          <View style={styles.title}>
-            <Text style={[styles.text, styles.titleColor]} numberOfLines={2}>
-              {this.title}
-            </Text>
+          <View style={styles.titleView}>
+            {this.state.isFontLoaded ? (
+              <Text
+                numberOfLines={2}
+                style={[styles.titleText, { fontFamily: 'Vineritc' }]}
+                textAlign="center"
+              >
+                {this.title}
+              </Text>
+            ) : null}
           </View>
-          <View style={styles.content}>
+          <View style={styles.contentView}>
             <Content style={styles.textContent}>
-              <Text style={styles.text}>{this.paragraph}</Text>
+              {this.state.isFontLoaded ? (
+                <Text style={[styles.text, { fontFamily: 'Centaur' }]}>
+                  {this.paragraph}
+                </Text>
+              ) : null}
+              {this.state.isFontLoaded && this.havingVideo ? (
+                <Text
+                  onPress={this.goToWebsite}
+                  textAlign="center"
+                  style={[
+                    styles.text,
+                    { fontFamily: 'Centaur' },
+                    { color: '#00e9ff' }
+                  ]}
+                >
+                  {watchingVideoText}
+                </Text>
+              ) : null}
             </Content>
           </View>
-          <View style={styles.footer}>{Logos}</View>
+          <View style={{ flex: 1 }} />
         </ImageBackground>
       </View>
     );

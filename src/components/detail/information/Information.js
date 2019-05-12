@@ -31,12 +31,14 @@ export default class Information extends Component {
   render() {
     return (
       <View>
-        <InformationItem item={this.timeItem} />
-        <InformationItem item={this.typeItem} />
-        <InformationItem item={this.locationItem} />
-        <InformationItem item={this.phoneItem} />
+        <View style={{ height: height / 3 }}>
+          <InformationItem item={this.timeItem} />
+          <InformationItem item={this.typeItem} />
+          <InformationItem item={this.locationItem} />
+          <InformationItem item={this.phoneItem} />
+        </View>
         <Image
-          source={require('../../../../assets/MainPage/map.png')}
+          source={this.props.item.mapImgPath}
           resizeMode="cover"
           style={styles.img}
         />

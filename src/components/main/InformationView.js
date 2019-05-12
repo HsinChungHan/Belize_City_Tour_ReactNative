@@ -10,7 +10,8 @@ import {
 import { Button } from 'native-base';
 import Swiper from 'react-native-swiper';
 const { width, height } = Dimensions.get('window');
-import { imagePath } from '../../model/project/projectData';
+const informationViewHeight = (width * 4) / 5;
+
 const btnImgPath = {
   open: require('../../../assets/MainPage/icon/btn_extend.png'),
   close: require('../../../assets/MainPage/icon/btn_collapse.png')
@@ -43,7 +44,7 @@ export default class InformationView extends Component {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={this.goToDetail} style={styles.visitView}>
-          <Text>Visit</Text>
+          <Text style={styles.subTitleText}>Visit</Text>
         </TouchableOpacity>
 
         <View style={styles.informationView}>
@@ -61,7 +62,9 @@ export default class InformationView extends Component {
               style={styles.icon}
               resizeMode="contain"
             />
-            <Text style={styles.titleText}>{this.props.item.openingTime}</Text>
+            <Text style={styles.subTitleText}>
+              {this.props.item.openingTime}
+            </Text>
           </View>
         </View>
         <View style={styles.swiper}>
@@ -82,9 +85,9 @@ export default class InformationView extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: width,
-    width: width - 40,
-    backgroundColor: 'green',
+    height: informationViewHeight,
+    width: width - 20,
+    backgroundColor: 'rgba(255, 223, 196, 0.8)',
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
@@ -133,10 +136,19 @@ const styles = StyleSheet.create({
     // marginRight: 10
   },
   titleText: {
-    paddingLeft: 10
+    paddingLeft: 10,
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: 'rgba(132, 94, 85, 1)'
+  },
+  subTitleText: {
+    paddingLeft: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'rgba(157, 117, 107, 1)'
   },
   swiper: {
-    flex: 4,
+    flex: 5,
     backgroundColor: 'green',
     marginTop: 10
   },

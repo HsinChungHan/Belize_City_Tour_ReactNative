@@ -15,11 +15,15 @@ import {
 
 import InformationView from '../components/main/InformationView';
 import items from '../model/main/AllPlaces';
+
 const { width, height } = Dimensions.get('window');
-const visitBtnHeight = (width - 40) / 9;
+const informationViewHeight = (width * 4) / 5;
+const visitBtnHeight = (informationViewHeight - 40) / 9;
 const tabBarHeight = 49;
 const ivCloseY = height - tabBarHeight - visitBtnHeight;
-const ivOpenY = height - width - tabBarHeight;
+
+const ivOpenY = height - informationViewHeight - tabBarHeight;
+// const ivOpenY = 10;
 
 export default class MainScene extends Component {
   constructor(props) {
@@ -27,9 +31,31 @@ export default class MainScene extends Component {
     this.state = {
       count: 0,
       currentItem: items[1],
-      informationViewIsOpened: false
+      informationViewIsOpened: false,
+      rotateYValue: [
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0),
+        new Animated.Value(0)
+      ]
     };
     this.baseState = this.state;
+
+    //LocationIcon rotateY
+    this.rotateAnimated = Animated.timing(this.state.rotateYValue, {
+      toValue: 1,
+      duration: 3000,
+      easing: Easing.in
+    });
 
     //Man icon animation
     this.menIconLoaction = {
@@ -54,6 +80,16 @@ export default class MainScene extends Component {
     });
   }
 
+  _startRotatedAnimated = index => {
+    Animated.timing(this.state.rotateYValue[index], {
+      toValue: 1,
+      duration: 1000,
+      easing: Easing.in
+    }).start(finished => {
+      this.state.rotateYValue[index].setValue(0);
+    });
+  };
+
   _moveManIcon = () => {
     Animated.spring(this.manIconMoveAnimation, {
       toValue: {
@@ -67,36 +103,40 @@ export default class MainScene extends Component {
     this.props.navigation.navigate('Detail');
   };
 
-  pressLocationIcon = key => {
-    console.log(key);
-    console.log(`------------`);
+  pressLocationIcon = (item, index) => {
+    this.setState(prevState => ({
+      currentItem: item
+    }));
+
+    this._startRotatedAnimated(index);
+    //ManIconAnimation
+    Animated.timing(this.manIconMoveAnimation, {
+      toValue: {
+        x: item.iconLocationX + 30,
+        y: item.iconLocationY + 30
+      },
+      duration: 600,
+      easing: Easing.in
+    }).start(
+      //InforamtionViewAnimation
+      this.openInformationView
+    );
   };
 
   _renderPlaceIcon = () => {
     let icons = [];
+    // let rotateYValue = new Animated.Value(0);
+
     items.map((item, index) => {
+      const rotateY = this.state.rotateYValue[index].interpolate({
+        inputRange: [0, 1],
+        outputRange: ['0deg', '180deg']
+      });
       icons.push(
         <TouchableOpacity
           key={index}
           onPress={event => {
-            // console.log(index);
-            // console.log(item);
-            this.setState(prevState => ({
-              currentItem: item
-            }));
-
-            //ManIconAnimation
-            Animated.timing(this.manIconMoveAnimation, {
-              toValue: {
-                x: item.iconLocationX + 30,
-                y: item.iconLocationY + 30
-              },
-              duration: 600,
-              easing: Easing.in
-            }).start(
-              //InforamtionViewAnimation
-              this.openInformationView
-            );
+            this.pressLocationIcon(item, index);
           }}
           style={{
             width: 65,
@@ -106,11 +146,12 @@ export default class MainScene extends Component {
             left: item.iconLocationX
           }}
         >
-          <Image
+          <Animated.Image
             source={item.iconImgPath}
             style={{
               width: 65,
-              height: 65
+              height: 65,
+              transform: [{ rotateY: rotateY }]
             }}
           />
         </TouchableOpacity>
@@ -214,10 +255,11 @@ export default class MainScene extends Component {
 const styles = StyleSheet.create({
   informationView: {
     position: 'absolute',
-    top: height - 20,
+    top: ivCloseY,
+    // top: height - 20,
     left: 0,
     width: width,
-    height: width,
+    height: informationViewHeight,
     alignItems: 'center'
   }
 });

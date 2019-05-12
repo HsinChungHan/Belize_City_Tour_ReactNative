@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { View, StyleSheet, StatusBar, Dimensions } from 'react-native';
 
 import {
-  Root,
   Container,
   Header,
   Left,
   Body,
-  Right,
   Button,
   Icon,
   Segment,
@@ -20,9 +18,10 @@ import {
 import Information from '../components/detail/information/Information';
 import Story from '../components/detail/story/Story';
 const { width, height } = Dimensions.get('window');
-import { Font, AppLoading } from 'expo';
+import { Font } from 'expo';
 
-import DetailTheme from './Theme/DetailTheme';
+import getTheme from '../../native-base-theme/components';
+import detailSceneTheme from '../../native-base-theme/variables/detailSceneTheme';
 
 export default class DetailScene extends Component {
   constructor(props) {
@@ -34,14 +33,7 @@ export default class DetailScene extends Component {
     this.baseState = this.state;
 
     this.item = this.props.navigation.state.params;
-
     this.name = this.item.englishName;
-    this.time = this.item.openingTime;
-    this.type = this.item.type;
-    this.location = this.item.address;
-    this.phone = this.item.phone;
-    this.storys = this.item.englishStorys;
-    this.imgsPath = this.item.imgsPath;
   }
 
   async componentDidMount() {
@@ -59,56 +51,64 @@ export default class DetailScene extends Component {
   };
   render() {
     return (
-      // <StyleProvider style={DetailTheme}>
-      <Container>
-        <StatusBar hidden />
-        <Header hasSegment style={styles.headerView}>
-          <Left>
-            <Button transparent onPress={this.backToMain}>
-              <Icon name="arrow-back" />
+      <StyleProvider style={getTheme(detailSceneTheme)}>
+        <Container>
+          <StatusBar hidden />
+          <Header hasSegment style={styles.headerView}>
+            <Left>
+              <Button transparent onPress={this.backToMain}>
+                <Icon name="arrow-back" />
+              </Button>
+            </Left>
+            <Body>
+              {this.state.isFontLoaded ? (
+                <Title style={styles.headerText}>{this.name}</Title>
+              ) : null}
+            </Body>
+          </Header>
+          <Segment style={{ width: width }}>
+            <Button
+              first
+              active={this.state.selectedSegment === 1}
+              onPress={() => {
+                this.setState({
+                  selectedSegment: 1
+                });
+              }}
+              style={styles.segmentButton}
+            >
+              {this.state.isFontLoaded ? (
+                <Text style={styles.segmentText} textAlign="center">
+                  Story
+                </Text>
+              ) : null}
             </Button>
-          </Left>
-          <Body>
-            {this.state.isFontLoaded ? (
-              <Title style={styles.headerText}>{this.name}</Title>
-            ) : null}
-          </Body>
-        </Header>
-        <Segment style={this.segmentView}>
-          <Button
-            first
-            active={this.state.selectedSegment === 1}
-            onPress={() => {
-              this.setState({
-                selectedSegment: 1
-              });
-            }}
-            style={styles.segmentButton}
-          >
-            {this.state.isFontLoaded ? <Text>Story</Text> : null}
-          </Button>
-          <Button
-            last
-            active={this.state.selectedSegment === 2}
-            onPress={() => {
-              this.setState({
-                selectedSegment: 2
-              });
-            }}
-            style={styles.segmentButton}
-          >
-            {this.state.isFontLoaded ? <Text>INformation</Text> : null}
-          </Button>
-        </Segment>
-        <Content>
-          {this.state.selectedSegment === 1 ? (
-            <Story item={this.item} />
-          ) : (
-            <Information item={this.item} />
-          )}
-        </Content>
-      </Container>
-      // </StyleProvider>
+            <Button
+              last
+              active={this.state.selectedSegment === 2}
+              onPress={() => {
+                this.setState({
+                  selectedSegment: 2
+                });
+              }}
+              style={styles.segmentButton}
+            >
+              {this.state.isFontLoaded ? (
+                <Text style={styles.segmentText} textAlign="center">
+                  INformation
+                </Text>
+              ) : null}
+            </Button>
+          </Segment>
+          <Content style={{ backgroundColor: 'rgb(254,242,219)' }}>
+            {this.state.selectedSegment === 1 ? (
+              <Story item={this.item} />
+            ) : (
+              <Information item={this.item} />
+            )}
+          </Content>
+        </Container>
+      </StyleProvider>
     );
   }
 }
@@ -119,17 +119,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  segmentView: {
-    backgroundColor: 'green'
-  },
   segmentButton: {
     paddingLeft: 0,
     paddingRight: 0
   },
+  segmentText: {
+    width: width / 2 - 10,
+    fontWeight: 'bold',
+    fontSize: 18
+  },
   headerView: {
-    backgroundColor: 'yellow'
+    backgroundColor: 'rgba(19, 34, 38, 0.9)'
   },
   headerText: {
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 22
   }
 });

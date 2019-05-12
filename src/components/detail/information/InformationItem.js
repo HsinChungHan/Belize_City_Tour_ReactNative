@@ -12,6 +12,7 @@ export default class InformationItem extends Component {
     this.logoPath = this.item.logoPath;
     this.title = this.item.title;
     this.subTitle = this.item.subTitle;
+    this.mapPath = this.item.mapPath;
   }
 
   render() {
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'orange',
     paddingLeft: 10
   },
   subTitle: {
@@ -55,7 +55,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'green'
   },
   titleText: {
-    paddingLeft: 10
+    paddingLeft: 10,
+    fontWeight: 'bold',
+    fontSize: 24,
+    color: 'rgb(132,94,85)'
   },
   subtitleView: {
     flex: 4
@@ -63,7 +66,9 @@ const styles = StyleSheet.create({
   },
   subTitleText: {
     paddingLeft: 20,
-    textAlign: 'left'
+    textAlign: 'left',
+    fontSize: 16,
+    color: '#040C0E'
   },
   iconView: {
     // backgroundColor: 'red',
