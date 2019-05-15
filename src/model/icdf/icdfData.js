@@ -9,7 +9,7 @@ const icdfData = {
     '    The Belize City Tour app has its origins in the Belize City House of Culture and Downtown Rejuvenation Project, jointly implemented by the TaiwanICDF and the Government of Belize since 2014. The project aims to promote awareness and appreciation of colonial heritage and cultural identity through the rejuvenation of a pilot selection of historical/colonial buildings, creating an eco-museum that will contribute to the development of sustainable cultural tourism.'
 };
 const imagePath = [
-  require('../../../assets/ICDFPage/photos/photo1.jpg'),
+  require('../../../assets/GIF/TaiwanICDF.gif'),
   require('../../../assets/ICDFPage/photos/photo2.jpeg'),
   require('../../../assets/ICDFPage/photos/photo3.jpg')
 ];

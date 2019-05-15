@@ -17,6 +17,8 @@ import InformationView from '../components/main/InformationView';
 import items from '../model/main/AllPlaces';
 
 const { width, height } = Dimensions.get('window');
+const originalWidth = 411;
+const originalHeight = 683;
 const informationViewHeight = (width * 4) / 5;
 const visitBtnHeight = (informationViewHeight - 40) / 9;
 const tabBarHeight = 49;
@@ -27,6 +29,8 @@ const ivOpenY = height - informationViewHeight - tabBarHeight;
 
 export default class MainScene extends Component {
   constructor(props) {
+    console.log(`width: ${width}`);
+    console.log(`height: ${height}`);
     super(props);
     this.state = {
       count: 0,
@@ -50,17 +54,10 @@ export default class MainScene extends Component {
     };
     this.baseState = this.state;
 
-    //LocationIcon rotateY
-    this.rotateAnimated = Animated.timing(this.state.rotateYValue, {
-      toValue: 1,
-      duration: 3000,
-      easing: Easing.in
-    });
-
     //Man icon animation
     this.menIconLoaction = {
-      x: width - 10 - 65,
-      y: 10
+      x: width - 10 - (65 * width) / originalWidth,
+      y: (10 * height) / originalHeight
     };
 
     this.manIconMoveAnimation = new Animated.ValueXY({
@@ -112,8 +109,8 @@ export default class MainScene extends Component {
     //ManIconAnimation
     Animated.timing(this.manIconMoveAnimation, {
       toValue: {
-        x: item.iconLocationX + 30,
-        y: item.iconLocationY + 30
+        x: (item.iconLocationX * width) / originalWidth + 30,
+        y: (item.iconLocationY * height) / originalHeight + 30
       },
       duration: 600,
       easing: Easing.in
@@ -139,18 +136,18 @@ export default class MainScene extends Component {
             this.pressLocationIcon(item, index);
           }}
           style={{
-            width: 65,
-            height: 65,
+            width: (65 * width) / originalWidth,
+            height: (65 * width) / originalWidth,
             position: 'absolute',
-            top: item.iconLocationY,
-            left: item.iconLocationX
+            top: (item.iconLocationY * height) / originalHeight,
+            left: (item.iconLocationX * width) / originalWidth
           }}
         >
           <Animated.Image
             source={item.iconImgPath}
             style={{
-              width: 65,
-              height: 65,
+              width: (65 * width) / originalWidth,
+              height: (65 * width) / originalWidth,
               transform: [{ rotateY: rotateY }]
             }}
           />
@@ -220,8 +217,8 @@ export default class MainScene extends Component {
             source={require('../../assets/MainPage/men.png')}
             style={[
               {
-                width: 40,
-                height: 40,
+                width: (40 * width) / originalWidth,
+                height: (40 * width) / originalWidth,
                 top: this.menIconLoaction.y,
                 left: this.menIconLoaction.x,
                 position: 'absolute'

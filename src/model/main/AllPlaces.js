@@ -58,7 +58,7 @@ export default (item = [
     latitude: 17.493996,
     longitude: -88.186587,
     iconLocationX: 254,
-    iconLocationY: 120,
+    iconLocationY: 100,
     type: 'monument',
     phone: '+501 227-7377',
     openingTime: 'not opened to the general public',
@@ -113,7 +113,7 @@ export default (item = [
     latitude: 17.491446,
     longitude: -88.187571,
     iconLocationX: 1000,
-    iconLocationY: 1000,
+    iconLocationY: 960,
     type: 'gallery & shop',
     phone: '+501 227-7397',
     openingTime: 'to be updated',
@@ -322,7 +322,7 @@ export default (item = [
     latitude: 17.494143,
     longitude: -88.186991,
     iconLocationX: 130,
-    iconLocationY: 179,
+    iconLocationY: 139,
     type: 'monument',
     phone: 'N.A.',
     openingTime: 'Open all day',
@@ -432,7 +432,7 @@ export default (item = [
     latitude: 17.494763,
     longitude: -88.187107,
     iconLocationX: 124,
-    iconLocationY: 100,
+    iconLocationY: 80,
     type: 'monument',
     phone: 'N.A.',
     openingTime: 'Open all day',
@@ -484,7 +484,7 @@ export default (item = [
     latitude: 17.491229,
     longitude: -88.187966,
     iconLocationX: 44,
-    iconLocationY: 257,
+    iconLocationY: 217,
     type: 'monument',
     phone: '+501 227-1801',
     openingTime: 'Open all day',
@@ -613,20 +613,18 @@ export default (item = [
     ],
     englishStory:
       'They leaved their footprints and delighted figures here, Belize Welcome Sign. It constituted the most beautiful with the warm sunshine and cool sea wind. On August 17th, 2018, with the sunshine and the breeze, President Xiaoying came to the Caribbean Sea, the colorful Belize Welcome Sign! The light house is a famouse landscape as well. This light house was built for a rich but generous foreign businessman. He donated all of his tenure to Belize. In order to memory his selfless behavior, Belize government built this significant light house for him!',
-    englishStoryFirst:
-      'They leaved their footprints and delighted figures here, Belize Welcome Sign. It constituted the most beautiful with the warm sunshine and cool sea wind. ',
+    englishStoryFirst: 'The colorful Belize Welcome Sign!',
     englishStorySecond:
-      ' On August 17th, 2018, with the sunshine and the breeze, President Xiaoying came to the Caribbean Sea, the colorful Belize Welcome Sign! ',
+      '   It is an iconic location for photos which located close to the cruise ship pier and the lighthouse.',
     englishStoryThird:
-      'The light house is a famouse landscape as well. This light house was built for a rich but generous foreign businessman. He donated all of his tenure to Belize. In order to memory his selfless behavior, Belize government built this significant light house for him! ',
+      '    The lighthouse is a famous landmark as well. This lighthouse was built to memorialize a rich but generous foreign businessman. He donated all of his tenure to Belize. In order to honor his selfless behavior, Belize government built this significant lighthouse for him! ',
     mandarinStory:
       '僅在此留下了足跡還有他們雀躍欣喜的身影，搭著暖暖的陽光，構成一幅最美麗的畫面。2018年8月17日，和煦的陽光伴著輕拂臉龐的微風，小英總統一行人浩浩蕩蕩地來到了位於加勒比海旁，色彩繽紛的Belize Welcome Sign! 而旁邊的燈塔也是貝里斯著名的景點之一，多年以前，有位富有但大方的外國商人，他將他的所有財產捐給貝里斯。因此，為了紀念其無私的舉動，貝里斯政府出建立這座燈塔以茲紀念！',
-    mandarinStoryFirst:
-      '僅在此留下了足跡還有他們雀躍欣喜的身影，搭著暖暖的陽光，構成一幅最美麗的畫面。',
+    mandarinStoryFirst: '色彩繽紛的貝里斯歡迎地標! ',
     mandarinStorySecond:
-      '2018年8月17日，和煦的陽光伴著輕拂臉龐的微風，小英總統一行人浩浩蕩蕩地來到了位於加勒比海旁，色彩繽紛的Belize Welcome Sign!',
+      '此為貝里斯最適合拍照的地標之一，位置靠近郵輪碼頭及燈塔。',
     mandarinStoryThird:
-      ' 而旁邊的燈塔也是貝里斯著名的景點之一，多年以前，有位富有但大方的外國商人，他將他的所有財產捐給貝里斯。因此，為了紀念其無私的舉動，貝里斯政府出建立這座燈塔以茲紀念！',
+      ' 燈塔也是貝里斯著名的景點之一，此為紀念多年以前，有位富有但十分大方無私的外國商人，慷慨捐贈其所有財產給貝里斯，因此貝里斯政府建立了這座燈塔以紀念其義行！',
     isLiked: 'FALSE',
     mapImg: 'BelizeWelcomeSignMap',
     mapImgPath: require('../../../assets/MainPage/gpsMap/BelizeWelcomeSignMap.png'),

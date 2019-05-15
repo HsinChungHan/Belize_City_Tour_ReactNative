@@ -68,7 +68,23 @@ export default class InformationView extends Component {
           </View>
         </View>
         <View style={styles.swiper}>
-          <Swiper>
+          <Swiper
+            autoplay={true}
+            activeDot={
+              <View
+                style={{
+                  backgroundColor: 'white',
+                  width: 8,
+                  height: 8,
+                  borderRadius: 4,
+                  marginLeft: 3,
+                  marginRight: 3,
+                  marginTop: 3,
+                  marginBottom: 3
+                }}
+              />
+            }
+          >
             {this.props.item.imgsPath.map((path, key) => {
               return (
                 <View key={key} style={styles.slider}>
@@ -88,9 +104,9 @@ const styles = StyleSheet.create({
     height: informationViewHeight,
     width: width - 20,
     backgroundColor: 'rgba(255, 223, 196, 0.8)',
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingBottom: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
     borderRadius: 20
   },
   closeView: {
@@ -155,11 +171,11 @@ const styles = StyleSheet.create({
   slider: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#9dd6eb'
+    backgroundColor: 'gray'
   },
   img: {
     width: width - 20,
-    height: 200
+    height: (width - 20) / 2
   },
   icon: {
     width: 25,

@@ -28,6 +28,7 @@ export default class ProjectScene extends Component {
         <StatusBar hidden />
 
         <Content>
+          <View style={styles.dummyView} />
           <View>
             <Text style={styles.text}>{items[0].paragraph}</Text>
           </View>
@@ -89,5 +90,9 @@ const styles = StyleSheet.create({
     lineHeight: 40,
     marginTop: 20,
     marginBottom: 20
+  },
+  dummyView: {
+    height: width / 5 + 20,
+    width: width
   }
 });

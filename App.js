@@ -4,13 +4,15 @@ import { Image } from 'react-native';
 import {
   createStackNavigator,
   createBottomTabNavigator,
-  createAppContainer
+  createAppContainer,
+  TabNavigator
 } from 'react-navigation';
 import MainScene from './src/scenes/MainScene';
 import DetailScene from './src/scenes/DetailScene';
 import ICDFScene from './src/scenes/ICDFScene';
 import ProjectScene from './src/scenes/ProjectScene';
 import WebsiteScene from './src/scenes/WebsiteScene';
+import WelcomScene from './src/scenes/WelcomeScene';
 
 const ICDFToWebsiteNavigator = createStackNavigator(
   {
@@ -27,8 +29,8 @@ const ICDFToWebsiteNavigator = createStackNavigator(
     Website: {
       screen: WebsiteScene,
       navigationOptions: () => ({
-        title: 'Website',
-        headerBackTitle: null
+        title: null
+        // headerBackTitle: ''
       })
     }
   },
@@ -36,7 +38,7 @@ const ICDFToWebsiteNavigator = createStackNavigator(
     initialRouteName: 'ICDF',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#f4511e'
+        backgroundColor: 'rgba(109,109,109, 0.2)'
       },
       headerTitleStyle: 'bold'
     }
@@ -58,8 +60,8 @@ const projectToWebsiteNavigator = createStackNavigator(
     Website: {
       screen: WebsiteScene,
       navigationOptions: () => ({
-        title: 'Website',
-        headerBackTitle: null
+        title: null
+        // headerBackTitle: null
       })
     }
   },
@@ -67,7 +69,7 @@ const projectToWebsiteNavigator = createStackNavigator(
     initialRouteName: 'Project',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#f4511e'
+        backgroundColor: 'rgba(109,109,109, 0.2)'
       },
       headerTitleStyle: 'bold'
     }
@@ -114,7 +116,7 @@ const tabNavigator = createBottomTabNavigator(
     }
   },
   {
-    initialRouteName: 'Project',
+    initialRouteName: 'Main',
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, horizontal, tintColor }) => {
         const { routeName } = navigation.state;
@@ -128,16 +130,48 @@ const tabNavigator = createBottomTabNavigator(
         }
 
         // You can return any component that you like here!
-        return <Image source={iconPath} style={{ width: 30, height: 30 }} />;
+        return <Image source={iconPath} style={{ width: 35, height: 35 }} />;
       }
     }),
     tabBarOptions: {
-      activeTintColor: 'yellow',
-      inactiveTintColor: 'gray'
-      // activeBackgroundColor: 'tomato'
+      activeTintColor: 'rgb(157,107,117)',
+      inactiveTintColor: '#A4978E',
+      activeBackgroundColor: 'rgba(255, 223, 196, 0.8)',
+      inactiveBackgroundColor: 'white'
     }
   }
 );
 
-const App = createAppContainer(tabNavigator);
+const VideoToTabBarNavigator = createStackNavigator(
+  {
+    Video: {
+      screen: WelcomScene,
+      navigationOptions: () => ({
+        header: null
+      })
+      // navigationOptions: () => ({
+      //   title: 'ICDF',
+      //   headerBackTitle: null
+      // })
+    },
+    TabBar: {
+      screen: tabNavigator,
+      navigationOptions: () => ({
+        header: null
+        // headerBackTitle: ''
+      })
+    }
+  },
+  {
+    initialRouteName: 'Video',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTitleStyle: 'bold'
+    }
+  }
+);
+
+const App = createAppContainer(VideoToTabBarNavigator);
 export default App;

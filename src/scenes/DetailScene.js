@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, StatusBar, Dimensions } from 'react-native';
+import { View, StyleSheet, StatusBar, Dimensions, Text } from 'react-native';
 
 import {
   Container,
@@ -11,7 +11,6 @@ import {
   Segment,
   Content,
   Title,
-  Text,
   StyleProvider
 } from 'native-base';
 
@@ -63,7 +62,9 @@ export default class DetailScene extends Component {
             <Body>
               {this.state.isFontLoaded ? (
                 <Title style={styles.headerText}>{this.name}</Title>
-              ) : null}
+              ) : (
+                <Text style={styles.headerText}>{this.name}</Text>
+              )}
             </Body>
           </Header>
           <Segment style={{ width: width }}>
@@ -78,10 +79,14 @@ export default class DetailScene extends Component {
               style={styles.segmentButton}
             >
               {this.state.isFontLoaded ? (
+                <Title style={styles.segmentText} textAlign="center">
+                  Story
+                </Title>
+              ) : (
                 <Text style={styles.segmentText} textAlign="center">
                   Story
                 </Text>
-              ) : null}
+              )}
             </Button>
             <Button
               last
@@ -94,10 +99,14 @@ export default class DetailScene extends Component {
               style={styles.segmentButton}
             >
               {this.state.isFontLoaded ? (
+                <Title style={styles.segmentText} textAlign="center">
+                  Information
+                </Title>
+              ) : (
                 <Text style={styles.segmentText} textAlign="center">
-                  INformation
+                  Information
                 </Text>
-              ) : null}
+              )}
             </Button>
           </Segment>
           <Content style={{ backgroundColor: 'rgb(254,242,219)' }}>
@@ -126,7 +135,8 @@ const styles = StyleSheet.create({
   segmentText: {
     width: width / 2 - 10,
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    color: 'white'
   },
   headerView: {
     backgroundColor: 'rgba(19, 34, 38, 0.9)'
