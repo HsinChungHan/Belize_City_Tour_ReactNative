@@ -54,7 +54,9 @@ export default class InformationView extends Component {
               style={styles.icon}
               resizeMode="contain"
             />
-            <Text style={styles.titleText}>{this.props.item.englishName}</Text>
+            <Text style={styles.titleText} numberOfLines={0}>
+              {this.props.item.englishName}
+            </Text>
           </View>
           <View style={styles.subTitleView}>
             <Image
@@ -165,7 +167,7 @@ const styles = StyleSheet.create({
   },
   swiper: {
     flex: 5,
-    backgroundColor: 'green',
+    backgroundColor: 'gray',
     marginTop: 10
   },
   slider: {
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray'
   },
   img: {
-    width: width - 20,
+    width: width - 40,
     height: (width - 20) / 2
   },
   icon: {

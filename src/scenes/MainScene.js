@@ -34,7 +34,7 @@ export default class MainScene extends Component {
     super(props);
     this.state = {
       count: 0,
-      currentItem: items[1],
+      currentItem: items[0],
       informationViewIsOpened: false,
       rotateYValue: [
         new Animated.Value(0),
@@ -126,8 +126,8 @@ export default class MainScene extends Component {
 
     items.map((item, index) => {
       const rotateY = this.state.rotateYValue[index].interpolate({
-        inputRange: [0, 1],
-        outputRange: ['0deg', '180deg']
+        inputRange: [0, 0.5, 1],
+        outputRange: ['0deg', '180deg', '360deg']
       });
       icons.push(
         <TouchableOpacity

@@ -21,7 +21,9 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.ICDF.BelizeCityTourGuide.IPhone"
+      "package": "com.ICDF.BelizeCityTourGuide.IPhone",
+      "permissions": [],
+      "versionCode": 2
     }
   }
 }

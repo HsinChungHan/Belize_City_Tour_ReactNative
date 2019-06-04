@@ -7,6 +7,7 @@ export default (variables /*: * */ = variable) => {
 
   const segmentTheme = {
     height: 45,
+    // height: 90,
     borderColor: variables.segmentBorderColorMain,
     flexDirection: 'row',
     justifyContent: 'center',

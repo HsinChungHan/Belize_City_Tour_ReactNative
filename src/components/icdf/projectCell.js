@@ -6,7 +6,8 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
   TouchableOpacity,
-  Touchable
+  Touchable,
+  Linking
 } from 'react-native';
 import PictureCell from './pictureCell';
 
@@ -28,9 +29,12 @@ export default class ProjectCell extends Component {
   }
 
   goToWebsite = () => {
-    this.navigation.navigate('Website', {
-      uri: 'https://www.youtube.com/watch?v=OsGXuI6woHA&feature=youtu.be'
-    });
+    Linking.openURL(
+      'https://www.youtube.com/watch?v=OsGXuI6woHA&feature=youtu.be'
+    );
+    // this.navigation.navigate('Website', {
+    //   uri: 'https://www.youtube.com/watch?v=OsGXuI6woHA&feature=youtu.be'
+    // });
   };
   render() {
     return (

@@ -25,16 +25,16 @@ export default (item = [
     englishStorys: [
       'Built in 1814 for Colonel George Arthur, this Government House had been home to 38 colonial governors of British Honduras between 1814 and 1981. ',
       'Due to its historic significance, the Government House was converted into the House of Culture in 1998, exhibiting the history and local culture of Belize City.',
-      'It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the House of Culture will serve as the core museum of the eco-museum.'
+      'It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the Government House will serve as the core of the eco-museum.'
     ],
     englishStory:
-      'Built in 1814 for Colonel George Arthur, this Government House had been home to 38 colonial governors of British Honduras between 1814 and 1981. Due to its historic significance, the Government House was converted into the House of Culture in 1998, exhibiting the history and local culture of Belize City. It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the House of Culture will serve as the core museum of the eco-museum.',
+      'Built in 1814 for Colonel George Arthur, this Government House had been home to 38 colonial governors of British Honduras between 1814 and 1981. Due to its historic significance, the Government House was converted into the House of Culture in 1998, exhibiting the history and local culture of Belize City. It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the Government House will serve as the core of the eco-museum.',
     englishStoryFirst:
       'Built in 1814 for Colonel George Arthur, this Government House had been home to 38 colonial governors of British Honduras between 1814 and 1981. ',
     englishStorySecond:
       'Due to its historic significance, the Government House was converted into the House of Culture in 1998, exhibiting the history and local culture of Belize City.',
     englishStoryThird:
-      'It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the House of Culture will serve as the core museum of the eco-museum.',
+      'It will be under restoration through a project implemented in collaboration between the TaiwanICDF and the Ministry of Tourism in Belize, which aims to create an eco-museum within Downtown Belize City. Once the work is completed, the Government House will serve as the core of the eco-museum.',
     mandarinStory:
       '本建物自1814年起作為英國殖民時期的總督府，直到1981年貝里斯獨立時，共有38位總督曾經居住在此。因其具有的重要歷史意義，故於1998年起設立為文化之家，展出貝里斯市的歷史與當地特色文化。來自台灣的國際合作發展基金會與貝里斯觀光部透過一項打造生態博物館的計畫，將針對文化之家進行修復工程，使之成為生態博物館的核心館。',
     mandarinStoryFirst:
@@ -255,7 +255,7 @@ export default (item = [
   },
   {
     tag: 5,
-    englishName: 'Yarborough Cemetery and Green',
+    englishName: 'Yarborough Cemetery',
     mandarinName: 'Yarborough墓園及綠地',
     address: 'Yarborough Cemetery, Albert St W, Belize City, belize',
     latitude: 17.488052,

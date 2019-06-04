@@ -7,6 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
+import { Audio } from 'expo';
 
 // const videoURI = Asset.fromModule(require('../../assets/Video/intro.mp4')).uri;
 const { width, height } = Dimensions.get('window');
@@ -14,7 +15,20 @@ const { width, height } = Dimensions.get('window');
 export default class WelcomScene extends Component {
   constructor(props) {
     super(props);
-    var intervalID = window.setInterval(this.goToMainScene, 17200);
+    var intervalID = window.setInterval(this.goToMainScene, 17000);
+  }
+
+  async componentDidMount() {
+    const soundObject = new Audio.Sound();
+    try {
+      await soundObject.loadAsync(
+        require('../../assets/sounds/backgroundMusic.mp3')
+      );
+      await soundObject.playAsync();
+      // Your sound is playing!
+    } catch (error) {
+      // An error occurred!
+    }
   }
 
   goToMainScene = () => {

@@ -29,7 +29,10 @@ const ICDFToWebsiteNavigator = createStackNavigator(
     Website: {
       screen: WebsiteScene,
       navigationOptions: () => ({
-        title: null
+        title: null,
+        headerStyle: {
+          backgroundColor: 'rgb(109,109,109)'
+        }
         // headerBackTitle: ''
       })
     }
@@ -38,7 +41,7 @@ const ICDFToWebsiteNavigator = createStackNavigator(
     initialRouteName: 'ICDF',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: 'rgba(109,109,109, 0.2)'
+        backgroundColor: 'rgba(109,109,109)'
       },
       headerTitleStyle: 'bold'
     }
@@ -60,7 +63,10 @@ const projectToWebsiteNavigator = createStackNavigator(
     Website: {
       screen: WebsiteScene,
       navigationOptions: () => ({
-        title: null
+        title: null,
+        headerStyle: {
+          backgroundColor: 'rgb(109,109,109)'
+        }
         // headerBackTitle: null
       })
     }
@@ -69,7 +75,7 @@ const projectToWebsiteNavigator = createStackNavigator(
     initialRouteName: 'Project',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: 'rgba(109,109,109, 0.2)'
+        backgroundColor: 'rgba(109,109,109)'
       },
       headerTitleStyle: 'bold'
     }

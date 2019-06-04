@@ -4,7 +4,8 @@ import {
   Text,
   StyleSheet,
   Dimensions,
-  ImageBackground
+  ImageBackground,
+  Linking
 } from 'react-native';
 import { Content } from 'native-base';
 import { Logos } from '../../model/project/projectData';
@@ -79,9 +80,13 @@ export default class ListItem extends Component {
   }
 
   goToWebsite = () => {
-    this.navigation.navigate('Website', {
-      uri: 'https://www.youtube.com/watch?v=05dlrr3obIE&feature=youtu.be'
-    });
+    Linking.openURL(
+      'https://www.youtube.com/watch?v=05dlrr3obIE&feature=youtu.be'
+    );
+
+    // this.navigation.navigate('Website', {
+    //   uri: 'https://www.youtube.com/watch?v=05dlrr3obIE&feature=youtu.be'
+    // });
   };
 
   render() {
